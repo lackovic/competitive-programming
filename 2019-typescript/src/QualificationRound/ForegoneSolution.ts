@@ -14,7 +14,7 @@ const rl = readline.createInterface({
 
 let i = 0;
 
-rl.on("line", line => {
+rl.on("line", (line: string) => {
   if (i > 0) {
     const n = Number(line);
     const [a, b] = solve(n);
@@ -23,18 +23,18 @@ rl.on("line", line => {
   i++;
 });
 
-const solve = (num: number): number[] => {
+const solve = (n: number): number[] => {
   const checks = new Array<number>(2);
-  const numAsArrayOfDigits = Array.from(num.toString()).map(Number);
+  const numAsArrayOfDigits = Array.from(n.toString()).map(Number);
   checks[0] = Number(
     numAsArrayOfDigits
-      .map(x => (x == 4 ? 2 : x))
+      .map((d: Number) => (d == 4 ? 2 : d))
       .map(String)
       .join("")
   );
   checks[1] = Number(
     numAsArrayOfDigits
-      .map(x => (x == 4 ? 2 : 0))
+      .map((d: Number) => (d == 4 ? 2 : 0))
       .map(String)
       .join("")
   );
