@@ -26,17 +26,12 @@ rl.on("line", (line: string) => {
 const solve = (n: number): number[] => {
   const checks = new Array<number>(2);
   const numAsArrayOfDigits = Array.from(n.toString()).map(Number);
-  checks[0] = Number(
-    numAsArrayOfDigits
-      .map((d: Number) => (d == 4 ? 2 : d))
-      .map(String)
-      .join("")
-  );
   checks[1] = Number(
     numAsArrayOfDigits
       .map((d: Number) => (d == 4 ? 2 : 0))
       .map(String)
       .join("")
   );
+  checks[0] = n - checks[1];
   return checks;
 };
