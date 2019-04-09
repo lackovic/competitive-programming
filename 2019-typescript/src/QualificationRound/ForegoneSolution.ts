@@ -3,7 +3,7 @@
  * Google Code Jam, Qualification Round
  * Foregone Solution
  */
-"use strict";
+
 import * as readline from "readline";
 
 const rl = readline.createInterface({
