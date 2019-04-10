@@ -4,16 +4,12 @@
  * Foregone Solution
  */
 
+declare var require: any;
+declare var process: any;
 const readline = require("readline");
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout,
-  terminal: false
-});
+const rl = readline.createInterface({ input: process.stdin });
 
 let i = 0;
-
 rl.on("line", (line: string) => {
   if (i > 0) {
     const n = Number(line);
