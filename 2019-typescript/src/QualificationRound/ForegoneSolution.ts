@@ -10,27 +10,23 @@ const readline = require("readline");
 const rl = readline.createInterface({ input: process.stdin });
 
 let i = 0;
-rl.on("line", (line: string) => {
+rl.on("line", (num: string) => {
   if (i > 0) {
-    const n = Number(line);
-    const [a, b] = solve(n);
+    const [a, b] = solve(num);
     console.log(`Case #${i}: ${a} ${b}`);
   }
   i++;
 });
 
-const solve = (n: number): number[] => {
+const solve = (num: string): number[] => {
   const checks = new Array<number>(2);
-  const numAsArrayOfDigits = n
-    .toString()
-    .split("")
-    .map(Number);
+  const numAsArrayOfDigits = num.split("").map(Number);
   checks[1] = Number(
     numAsArrayOfDigits
       .map((d: Number) => (d == 4 ? 2 : 0))
       .map(String)
       .join("")
   );
-  checks[0] = n - checks[1];
+  checks[0] = Number(num) - checks[1];
   return checks;
 };
