@@ -18,15 +18,16 @@ rl.on("line", (num: string) => {
   i++;
 });
 
-const solve = (num: string): number[] => {
-  const checks = new Array<number>(2);
+const solve = (num: string): string[] => {
+  const checks = new Array<string>(2);
   const numAsArrayOfDigits = num.split("").map(Number);
-  checks[1] = Number(
-    numAsArrayOfDigits
-      .map((d: Number) => (d == 4 ? 2 : 0))
-      .map(String)
-      .join("")
-  );
-  checks[0] = Number(num) - checks[1];
+  checks[0] = numAsArrayOfDigits
+    .map((d: Number) => (d == 4 ? 2 : d))
+    .map(String)
+    .join("");
+  checks[1] = numAsArrayOfDigits
+    .map((d: Number) => (d == 4 ? 2 : 0))
+    .map(String)
+    .join("");
   return checks;
 };
