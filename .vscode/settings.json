@@ -4,7 +4,8 @@
     "**/dist": true,
     "**/build": true,
     "**/.github": true,
-    "**/.vscode": true
+    "**/.vscode": true,
+    ".gitignore": true
   },
   "editor.tabSize": 2
 }
