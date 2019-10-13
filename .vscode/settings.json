@@ -1,0 +1,10 @@
+{
+  "files.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/build": true,
+    "**/.github": true,
+    "**/.vscode": true
+  },
+  "editor.tabSize": 2
+}
