@@ -1,4 +1,4 @@
-package projecteuler.multiplesof3and5;
+package projecteuler.krige.problem001;
 
 import java.util.Scanner;
 
@@ -17,7 +17,7 @@ import java.util.Scanner;
  * Constraints: 1<=T<=105 1<=N<=109
  * 
  * @author Marco Lackovic <marco.lackovic@gmail.com>
- * @version 1.0, 2/sep/2014
+ * @version 2.0, 2/sep/2014
  *
  */
 public class Solution {
