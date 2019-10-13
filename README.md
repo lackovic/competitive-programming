@@ -1,3 +1,5 @@
-# Google Code Jam solutions
+# Competitive programming solutions
 
-This is a collection of solutions I have written in various programming languages to solve Google Code Jam problems since 2012. For problem statements and input files, please see the [Google Code Jam site](http://code.google.com/codejam).
+This is a collection of solutions I have written in various programming languages (Java, C# and Typescript) for various competitive programming platforms:
+
+- [Google Code Jam](https://codingcompetitions.withgoogle.com/codejam)
