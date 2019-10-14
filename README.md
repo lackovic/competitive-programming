@@ -5,6 +5,6 @@ This is a collection of solutions I have written in various programming language
 - [Codewars](https://www.codewars.com)
 - [Google Code Jam](https://codingcompetitions.withgoogle.com/codejam)
 - [HackerRank](https://www.hackerrank.com)
-- [LeetCode](https://leetcode.com/profile/submissions/)
+- [LeetCode](https://leetcode.com/)
 - [Project Euler](https://www.projecteuler.net)
 - [Topcoder](https://www.topcoder.com/)
