@@ -27,7 +27,7 @@ Consider your entire calibration document. What is the sum of all of the calibra
 
 */
 
-package main
+package day01
 
 import (
 	"fmt"
@@ -36,8 +36,8 @@ import (
 	"strings"
 )
 
-func main() {
-	file, err := os.Open("day01_trebuchet.input")
+func Solve() {
+	file, err := os.Open("day01/trebuchet.input")
 	if err != nil {
 		fmt.Println("Error opening file:", err)
 		return
