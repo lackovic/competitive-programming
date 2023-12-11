@@ -1,6 +1,6 @@
 /*
 Author: Marco Lackovic
-Date: 2023-12-09
+Date: 2023-12-11
 
 https://adventofcode.com/2023/day/2
 
