@@ -36,17 +36,17 @@ import (
 	"strings"
 )
 
-func Solve() {
-	file, err := os.Open("day01/trebuchet.input")
+func Solve(filename string) int {
+	file, err := os.Open(filename)
 	if err != nil {
 		fmt.Println("Error opening file:", err)
-		return
+		return 0
 	}
 	defer file.Close()
 	calibrationDocument, err := io.ReadAll(file)
 	if err != nil {
 		fmt.Println("Error reading file:", err)
-		return
+		return 0
 	}
 	lines := strings.Split(string(calibrationDocument), "\n")
 	total := 0
@@ -57,11 +57,11 @@ func Solve() {
 		calibrationVal, err := calibrationValue(line)
 		if err != nil {
 			fmt.Println("Error calculating calibration value:", err)
-			return
+			return 0
 		}
 		total += calibrationVal
 	}
-	fmt.Println(total)
+	return total
 }
 
 // calibrationValue returns the calibration value of a line.
