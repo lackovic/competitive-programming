@@ -107,8 +107,5 @@ func isRevealPossible(reveal string) (bool, error) {
 			return false, fmt.Errorf("unknown cube color: %s", cube)
 		}
 	}
-	if red > 12 || green > 13 || blue > 14 {
-		return false, nil
-	}
-	return true, nil
+	return red <= 12 && green <= 13 && blue <= 14, nil
 }
