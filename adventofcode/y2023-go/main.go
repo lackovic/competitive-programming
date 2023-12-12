@@ -3,6 +3,7 @@ package main
 import (
 	"adventofcode2023/day01"
 	"adventofcode2023/day02"
+	"adventofcode2023/day03"
 	"fmt"
 	"os"
 )
@@ -20,6 +21,8 @@ func main() {
 	case "2":
 		result1 = day02.Solve("day02/cube_conundrum.input")
 		result2 = day02.SolvePart2("day02/cube_conundrum.input")
+	case "3":
+		result1 = day03.Solve("day03/gear_ratios.input")
 	default:
 		fmt.Println("Unknown solution:", os.Args[1])
 	}
