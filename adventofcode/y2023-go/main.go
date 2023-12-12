@@ -12,15 +12,16 @@ func main() {
 		fmt.Println("Provide the solution day number")
 		return
 	}
-	var result, result2 int
+	var result1, result2 int
 	switch os.Args[1] {
 	case "1":
-		result = day01.Solve("day01/trebuchet.input", 1)
+		result1 = day01.Solve("day01/trebuchet.input", 1)
 		result2 = day01.Solve("day01/trebuchet.input", 2)
 	case "2":
-		result = day02.Solve("day02/cube_conundrum.input")
+		result1 = day02.Solve("day02/cube_conundrum.input")
+		result2 = day02.SolvePart2("day02/cube_conundrum.input")
 	default:
 		fmt.Println("Unknown solution:", os.Args[1])
 	}
-	fmt.Println(result, result2)
+	fmt.Println(result1, result2)
 }

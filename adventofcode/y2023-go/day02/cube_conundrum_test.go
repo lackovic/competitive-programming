@@ -16,3 +16,14 @@ func TestWhenPassingTheExampleInputShouldReturn8(t *testing.T) {
 	// then
 	assert.Equal(t, 8, result)
 }
+
+func TestWhenPassingTheExampleInputShouldReturn2286(t *testing.T) {
+	// given
+	inputFile := "cube_conundrum.example"
+
+	// when
+	result := SolvePart2(inputFile)
+
+	// then
+	assert.Equal(t, 2286, result)
+}
