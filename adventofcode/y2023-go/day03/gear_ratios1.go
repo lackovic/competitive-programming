@@ -47,7 +47,7 @@ import (
 	"strings"
 )
 
-func Solve(filename string) int {
+func Solve1(filename string) int {
 	file, err := os.Open(filename)
 	if err != nil {
 		fmt.Println("error opening file:", err)
@@ -72,14 +72,14 @@ func Solve(filename string) int {
 func partNumbersSum(prevLine, currentLine, nextLine string) (total int) {
 	nextNumber := 0
 	for i := 0; i < len(currentLine); {
-		nextNumber, i = findNextNumber(i, prevLine, currentLine, nextLine)
+		nextNumber, i = findNextNumberSurroundedByAtLeastOneSymbol(i, prevLine, currentLine, nextLine)
 		total += nextNumber
 	}
 	return total
 }
 
-// findNextNumber returns the next number if it is surrounded by at least one symbol otherwise it returns 0.
-func findNextNumber(i int, prevLine, currentLine, nextLine string) (nextNumber int, nextI int) {
+// findNextNumberSurroundedByAtLeastOneSymbol returns the next number if it is surrounded by at least one symbol otherwise it returns 0.
+func findNextNumberSurroundedByAtLeastOneSymbol(i int, prevLine, currentLine, nextLine string) (nextNumber int, nextI int) {
 	for i < len(currentLine) && !isDigit(currentLine[i]) {
 		i++
 	}

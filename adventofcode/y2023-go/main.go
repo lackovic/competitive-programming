@@ -22,7 +22,8 @@ func main() {
 		result1 = day02.Solve("day02/cube_conundrum.input")
 		result2 = day02.SolvePart2("day02/cube_conundrum.input")
 	case "3":
-		result1 = day03.Solve("day03/gear_ratios.input")
+		result1 = day03.Solve1("day03/gear_ratios.input")
+		result2 = day03.Solve2("day03/gear_ratios.input")
 	default:
 		fmt.Println("Unknown solution:", os.Args[1])
 	}
