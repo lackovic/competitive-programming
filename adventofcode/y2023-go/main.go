@@ -4,6 +4,7 @@ import (
 	"adventofcode2023/day01"
 	"adventofcode2023/day02"
 	"adventofcode2023/day03"
+	"adventofcode2023/day04"
 	"fmt"
 	"os"
 )
@@ -24,6 +25,8 @@ func main() {
 	case "3":
 		result1 = day03.Solve1("day03/gear_ratios.input")
 		result2 = day03.Solve2("day03/gear_ratios.input")
+	case "4":
+		result1 = day04.Solve1("day04/scratchcards.input")
 	default:
 		fmt.Println("Unknown solution:", os.Args[1])
 	}
