@@ -2,7 +2,7 @@
 Author: Marco Lackovic
 Date: 2023-12-12
 
-https://adventofcode.com/2023/day/2
+https://adventofcode.com/2023/day/3
 
 --- Day 3: Gear Ratios ---
 
