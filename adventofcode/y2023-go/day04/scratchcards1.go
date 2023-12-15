@@ -45,32 +45,20 @@ Take a seat in the large pile of colorful cards. How many points are they worth 
 package day04
 
 import (
-	"fmt"
-	"io"
-	"os"
+	"adventofcode2023/utils"
 	"strings"
 )
 
-func Solve1(filename string) int {
-	file, err := os.Open(filename)
+func Solve1(filename string) (int, error) {
+	cards, err := utils.ReadFileLines(filename)
 	if err != nil {
-		fmt.Println("error opening file:", err)
-		return 0
+		return 0, err
 	}
-	defer file.Close()
-	table, err := io.ReadAll(file)
-	if err != nil {
-		fmt.Println("error reading file:", err)
-		return 0
-	}
-	cards := strings.Split(string(table), "\n")
 	total := 0
 	for card := range cards {
-		if cards[card] != "" {
-			total += cardWorth(strings.Split(cards[card], ":")[1])
-		}
+		total += cardWorth(strings.Split(cards[card], ":")[1])
 	}
-	return total
+	return total, nil
 }
 
 // cardWorth returns the worth of a card.

@@ -48,25 +48,15 @@ What is the sum of all of the calibration values?
 package day01
 
 import (
+	"adventofcode2023/utils"
 	"fmt"
-	"io"
-	"os"
-	"strings"
 )
 
-func Solve(filename string, part int) int {
-	file, err := os.Open(filename)
+func Solve(filename string, part int) (int, error) {
+	lines, err := utils.ReadFileLines(filename)
 	if err != nil {
-		fmt.Println("Error opening file:", err)
-		return 0
+		return 0, err
 	}
-	defer file.Close()
-	calibrationDocument, err := io.ReadAll(file)
-	if err != nil {
-		fmt.Println("Error reading file:", err)
-		return 0
-	}
-	lines := strings.Split(string(calibrationDocument), "\n")
 	total := 0
 	for _, line := range lines {
 		if len(line) == 0 {
@@ -74,12 +64,11 @@ func Solve(filename string, part int) int {
 		}
 		calibrationVal, err := calibrationValue(line, part)
 		if err != nil {
-			fmt.Println("Error calculating calibration value:", err)
-			return 0
+			return 0, fmt.Errorf("error calculating the calibration value: %w", err)
 		}
 		total += calibrationVal
 	}
-	return total
+	return total, nil
 }
 
 // calibrationValue returns the calibration value of a line.

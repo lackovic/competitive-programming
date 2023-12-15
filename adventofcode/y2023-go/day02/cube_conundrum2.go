@@ -33,26 +33,17 @@ For each game, find the minimum set of cubes that must have been present. What i
 package day02
 
 import (
+	"adventofcode2023/utils"
 	"fmt"
-	"io"
-	"os"
 	"strconv"
 	"strings"
 )
 
-func SolvePart2(filename string) int {
-	file, err := os.Open(filename)
+func SolvePart2(filename string) (int, error) {
+	games, err := utils.ReadFileLines(filename)
 	if err != nil {
-		fmt.Println("error opening file:", err)
-		return 0
+		return 0, err
 	}
-	defer file.Close()
-	record, err := io.ReadAll(file)
-	if err != nil {
-		fmt.Println("error reading file:", err)
-		return 0
-	}
-	games := strings.Split(string(record), "\n")
 	total := 0
 	for _, line := range games {
 		if len(line) == 0 {
@@ -61,12 +52,11 @@ func SolvePart2(filename string) int {
 		game := strings.Split(string(line), ":")[1]
 		power, err := powerOfSetOfCubes(game)
 		if err != nil {
-			fmt.Println("error calculatint the power of the set of cubes:", err)
-			return 0
+			return 0, fmt.Errorf("error calculating the power of the set of cubes: %w", err)
 		}
 		total += power
 	}
-	return total
+	return total, nil
 }
 
 // powerOfSetOfCubes returns true if the game is possible.

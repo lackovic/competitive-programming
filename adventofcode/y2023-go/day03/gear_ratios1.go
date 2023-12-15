@@ -40,33 +40,22 @@ Of course, the actual engine schematic is much larger. What is the sum of all of
 package day03
 
 import (
-	"fmt"
-	"io"
-	"os"
+	"adventofcode2023/utils"
 	"strconv"
-	"strings"
 )
 
-func Solve1(filename string) int {
-	file, err := os.Open(filename)
+func Solve1(filename string) (int, error) {
+	lines, err := utils.ReadFileLines(filename)
 	if err != nil {
-		fmt.Println("error opening file:", err)
-		return 0
+		return 0, err
 	}
-	defer file.Close()
-	schematic, err := io.ReadAll(file)
-	if err != nil {
-		fmt.Println("error reading file:", err)
-		return 0
-	}
-	lines := strings.Split(string(schematic), "\n")
 	total := partNumbersSum("", lines[0], lines[1])
 	row := 1
 	for ; row < len(lines)-1; row++ {
 		total += partNumbersSum(lines[row-1], lines[row], lines[row+1])
 	}
 	total += partNumbersSum(lines[row-1], lines[row], "")
-	return total
+	return total, nil
 }
 
 func partNumbersSum(prevLine, currentLine, nextLine string) (total int) {

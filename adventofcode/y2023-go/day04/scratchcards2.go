@@ -39,26 +39,15 @@ Process all of the original and copied scratchcards until no more scratchcards a
 package day04
 
 import (
-	"fmt"
-	"io"
-	"os"
+	"adventofcode2023/utils"
 	"strings"
 )
 
-func Solve2(filename string) int {
-	file, err := os.Open(filename)
+func Solve2(filename string) (int, error) {
+	cards, err := utils.ReadFileLines(filename)
 	if err != nil {
-		fmt.Println("error opening file:", err)
-		return 0
+		return 0, err
 	}
-	defer file.Close()
-	table, err := io.ReadAll(file)
-	if err != nil {
-		fmt.Println("error reading file:", err)
-		return 0
-	}
-	cards := strings.Split(string(table), "\n")
-	// initialize with zeros an array whose length is the number of cards
 	scratchcards := make([]int, len(cards))
 	scratchcardsTotal := 0
 	for card := range cards {
@@ -71,7 +60,7 @@ func Solve2(filename string) int {
 			}
 		}
 	}
-	return scratchcardsTotal
+	return scratchcardsTotal, nil
 }
 
 // matchesNumber returns the number of matches of a card.
