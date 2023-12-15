@@ -27,6 +27,7 @@ func main() {
 		result2 = day03.Solve2("day03/gear_ratios.input")
 	case "4":
 		result1 = day04.Solve1("day04/scratchcards.input")
+		result2 = day04.Solve2("day04/scratchcards.input")
 	default:
 		fmt.Println("Unknown solution:", os.Args[1])
 	}
