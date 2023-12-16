@@ -11,7 +11,10 @@ func TestScratchcards1ShouldReturn13(t *testing.T) {
 	inputFile := "scratchcards.example"
 
 	// when
-	result := Solve1(inputFile)
+	result, err := Solve1(inputFile)
+	if err != nil {
+		t.Error(err)
+	}
 
 	// then
 	assert.Equal(t, 13, result)
@@ -22,7 +25,10 @@ func TestScratchcards2ShouldReturn30(t *testing.T) {
 	inputFile := "scratchcards.example"
 
 	// when
-	result := Solve2(inputFile)
+	result, err := Solve2(inputFile)
+	if err != nil {
+		t.Error(err)
+	}
 
 	// then
 	assert.Equal(t, 30, result)

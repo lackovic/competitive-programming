@@ -11,7 +11,10 @@ func TestWhenPassingTheExampleInputShouldReturn142(t *testing.T) {
 	inputFile := "trebuchet.example"
 
 	// when
-	result := Solve(inputFile, 1)
+	result, err := Solve(inputFile, 1)
+	if err != nil {
+		t.Error(err)
+	}
 
 	// then
 	assert.Equal(t, 142, result)
@@ -22,7 +25,10 @@ func TestWhenPassingThePart2ExampleInputShouldReturn281(t *testing.T) {
 	inputFile := "trebuchet_part2.example"
 
 	// when
-	result := Solve(inputFile, 2)
+	result, err := Solve(inputFile, 2)
+	if err != nil {
+		t.Error(err)
+	}
 
 	// then
 	assert.Equal(t, 281, result)

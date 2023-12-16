@@ -11,7 +11,10 @@ func TestWhenPassingTheExampleInputShouldReturn8(t *testing.T) {
 	inputFile := "cube_conundrum.example"
 
 	// when
-	result := Solve(inputFile)
+	result, err := Solve(inputFile)
+	if err != nil {
+		t.Error(err)
+	}
 
 	// then
 	assert.Equal(t, 8, result)
@@ -22,7 +25,10 @@ func TestWhenPassingTheExampleInputShouldReturn2286(t *testing.T) {
 	inputFile := "cube_conundrum.example"
 
 	// when
-	result := SolvePart2(inputFile)
+	result, err := SolvePart2(inputFile)
+	if err != nil {
+		t.Error(err)
+	}
 
 	// then
 	assert.Equal(t, 2286, result)
