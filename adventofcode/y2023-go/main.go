@@ -37,7 +37,9 @@ func main() {
 		fmt.Println(result1, result2)
 	case "5":
 		result1_64, err1 = day05.Solve1("day05/fertilizer.input")
-		fmt.Println(result1_64, result2_64)
+		fmt.Println("Part 1 result = ", result1_64)
+		result2_64, err2 = day05.Solve2("day05/fertilizer.input")
+		fmt.Println("Part 2 result = ", result2_64)
 	default:
 		fmt.Println("Unknown solution:", os.Args[1])
 	}
