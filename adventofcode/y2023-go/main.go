@@ -5,6 +5,7 @@ import (
 	"adventofcode2023/day02"
 	"adventofcode2023/day03"
 	"adventofcode2023/day04"
+	"adventofcode2023/day05"
 	"fmt"
 	"os"
 )
@@ -15,20 +16,28 @@ func main() {
 		return
 	}
 	var result1, result2 int
+	var result1_64, result2_64 int64
 	var err1, err2 error
 	switch os.Args[1] {
 	case "1":
 		result1, err1 = day01.Solve("day01/trebuchet.input", 1)
 		result2, err2 = day01.Solve("day01/trebuchet.input", 2)
+		fmt.Println(result1, result2)
 	case "2":
 		result1, err1 = day02.Solve("day02/cube_conundrum.input")
 		result2, err2 = day02.SolvePart2("day02/cube_conundrum.input")
+		fmt.Println(result1, result2)
 	case "3":
 		result1, err1 = day03.Solve1("day03/gear_ratios.input")
 		result2, err2 = day03.Solve2("day03/gear_ratios.input")
+		fmt.Println(result1, result2)
 	case "4":
 		result1, err1 = day04.Solve1("day04/scratchcards.input")
 		result2, err2 = day04.Solve2("day04/scratchcards.input")
+		fmt.Println(result1, result2)
+	case "5":
+		result1_64, err1 = day05.Solve1("day05/fertilizer.input")
+		fmt.Println(result1_64, result2_64)
 	default:
 		fmt.Println("Unknown solution:", os.Args[1])
 	}
@@ -41,5 +50,4 @@ func main() {
 		}
 		return
 	}
-	fmt.Println(result1, result2)
 }
