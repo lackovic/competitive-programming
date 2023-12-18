@@ -43,7 +43,9 @@ func main() {
 		fmt.Println("Part 2 result = ", result2_64)
 	case "6":
 		result1, err1 = day06.Solve1("day06/waitforit.input")
-		fmt.Println(result1, result2)
+		fmt.Println("Part 1 result = ", result1)
+		result2_64, err2 = day06.Solve2("day06/waitforit.input")
+		fmt.Println("Part 2 result = ", result2_64)
 	default:
 		fmt.Println("Unknown solution:", os.Args[1])
 	}

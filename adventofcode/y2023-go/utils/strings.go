@@ -18,3 +18,9 @@ func StringToSliceOfInts(s string) ([]int, error) {
 	}
 	return ints, nil
 }
+
+// StringToInt64 given a string containing a sequence of digits possibly separated by spaces, returns the int64 equivalent to the sequence of digits.
+func StringToInt64(s string) (int64, error) {
+	s = strings.Replace(s, " ", "", -1)
+	return strconv.ParseInt(s, 10, 64)
+}
