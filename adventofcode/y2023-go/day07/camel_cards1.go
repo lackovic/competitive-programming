@@ -80,7 +80,7 @@ func Solve1(filename string) (int64, error) {
 	// read the lines and save them in a slice of hands
 	hands := make([]Hand, len(lines))
 	for i, line := range lines {
-		hands[i], err = parseHand(line)
+		hands[i], err = parseHand(line, determineHandType1)
 	}
 	if err != nil {
 		return 0, err
@@ -94,7 +94,7 @@ func Solve1(filename string) (int64, error) {
 }
 
 // parseHand parses a line of the input file and returns a Hand.
-func parseHand(line string) (Hand, error) {
+func parseHand(line string, determineHandType func([]rune) (HandType, error)) (Hand, error) {
 	hand := Hand{}
 	hand.Cards = make([]rune, 5)
 	for i, card := range strings.Split(line, " ")[0] {
@@ -110,7 +110,7 @@ func parseHand(line string) (Hand, error) {
 }
 
 // determineHandType determines the type of a hand.
-func determineHandType(cards []rune) (HandType, error) {
+func determineHandType1(cards []rune) (HandType, error) {
 	// Count the number of occurrences of each card.
 	counts := make(map[rune]int)
 	for _, card := range cards {
@@ -139,65 +139,4 @@ func determineHandType(cards []rune) (HandType, error) {
 		return FiveOfAKind, nil
 	}
 	return 0, fmt.Errorf("invalid hand: %v", cards)
-}
-
-// cardStrength maps a card to its strength.
-var cardStrength = map[rune]int{
-	'A': 13,
-	'K': 12,
-	'Q': 11,
-	'J': 10,
-	'T': 9,
-	'9': 8,
-	'8': 7,
-	'7': 6,
-	'6': 5,
-	'5': 4,
-	'4': 3,
-	'3': 2,
-	'2': 1,
-}
-
-// Hand represents a hand of cards.
-type Hand struct {
-	Cards []rune
-	Type  HandType
-	Bid   int
-}
-
-// HandType represents the type of a hand.
-type HandType int
-
-// The different types of hands, ordered from weakest to strongest.
-const (
-	HighCard HandType = iota
-	OnePair
-	TwoPair
-	ThreeOfAKind
-	FullHouse
-	FourOfAKind
-	FiveOfAKind
-)
-
-// ByStrength implements sort.Interface for []Hand based on the strength of the hands.
-type ByStrength []Hand
-
-func (h ByStrength) Len() int {
-	return len(h)
-}
-
-func (h ByStrength) Swap(i, j int) {
-	h[i], h[j] = h[j], h[i]
-}
-
-func (hands ByStrength) Less(i, j int) bool {
-	if hands[i].Type != hands[j].Type {
-		return hands[i].Type < hands[j].Type
-	}
-	for k := 0; k < len(hands[i].Cards); k++ {
-		if cardStrength[hands[i].Cards[k]] != cardStrength[hands[j].Cards[k]] {
-			return cardStrength[hands[i].Cards[k]] < cardStrength[hands[j].Cards[k]]
-		}
-	}
-	return false
 }

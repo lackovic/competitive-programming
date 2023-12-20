@@ -50,6 +50,8 @@ func main() {
 	case "7":
 		result1_64, err1 = day07.Solve1("day07/camel_cards.input")
 		fmt.Println("Part 1 result = ", result1_64)
+		result2_64, err2 = day07.Solve2("day07/camel_cards.input")
+		fmt.Println("Part 2 result = ", result2_64)
 	default:
 		fmt.Println("Unknown solution:", os.Args[1])
 	}
