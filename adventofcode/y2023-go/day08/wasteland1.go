@@ -67,8 +67,8 @@ func Solve1(filename string) (int, error) {
 }
 
 // parseDirectionsAsBits converts a string of directions as L and R to an array of bits
-func parseDirectionsAsBits(directions string) []int {
-	result := make([]int, len(directions))
+func parseDirectionsAsBits(directions string) []uint8 {
+	result := make([]uint8, len(directions))
 	for i, char := range directions {
 		if char == 'L' {
 			result[i] = 0

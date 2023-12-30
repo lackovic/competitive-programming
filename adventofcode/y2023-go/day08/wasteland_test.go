@@ -33,3 +33,17 @@ func TestWasteland1GivenExample2ShouldReturn6(t *testing.T) {
 	// then
 	assert.Equal(t, 6, result)
 }
+
+func TestWasteland2GivenExample1ShouldReturn6(t *testing.T) {
+	// given
+	inputFile := "wasteland.example3"
+
+	// when
+	result, err := Solve2(inputFile)
+	if err != nil {
+		t.Error(err)
+	}
+
+	// then
+	assert.Equal(t, int64(6), result)
+}
