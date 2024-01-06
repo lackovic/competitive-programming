@@ -60,7 +60,8 @@ func main() {
 		fmt.Println(result1, result2_64)
 	case "9":
 		result1, err1 = day09.Solve1("day09/mirage.input")
-		fmt.Println("Part 1 result = ", result1)
+		result2, err2 = day09.Solve2("day09/mirage.input")
+		fmt.Println(result1, result2)
 	default:
 		fmt.Println("Unknown solution:", os.Args[1])
 	}
