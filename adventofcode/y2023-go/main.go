@@ -10,6 +10,7 @@ import (
 	"adventofcode2023/day07"
 	"adventofcode2023/day08"
 	"adventofcode2023/day09"
+	"adventofcode2023/day10"
 	"fmt"
 	"os"
 )
@@ -62,6 +63,9 @@ func main() {
 		result1, err1 = day09.Solve1("day09/mirage.input")
 		result2, err2 = day09.Solve2("day09/mirage.input")
 		fmt.Println(result1, result2)
+	case "10":
+		result1, err1 = day10.Solve1("day10/pipe.input")
+		fmt.Println(result1)
 	default:
 		fmt.Println("Unknown solution:", os.Args[1])
 	}
