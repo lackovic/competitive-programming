@@ -24,3 +24,12 @@ func StringToInt64(s string) (int64, error) {
 	s = strings.Replace(s, " ", "", -1)
 	return strconv.ParseInt(s, 10, 64)
 }
+
+// given an array of strings returns an array of arrays of the characters of the strings
+func StringsToChars(ss []string) [][]rune {
+	chars := make([][]rune, len(ss))
+	for i, s := range ss {
+		chars[i] = []rune(s)
+	}
+	return chars
+}
