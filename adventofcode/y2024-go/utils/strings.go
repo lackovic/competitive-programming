@@ -49,3 +49,8 @@ func StringsToChars(ss []string) [][]rune {
 	}
 	return chars
 }
+
+// print a given string replacing the line printed by the previous one
+func PrintOverwrite(s string) {
+	print("\033[1A\033[K" + s)
+}
