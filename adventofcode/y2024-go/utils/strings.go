@@ -19,6 +19,20 @@ func StringToSliceOfInts(s string) ([]int, error) {
 	return ints, nil
 }
 
+// StringToArrayOfInts64 given a string of numbers separated by spaces, returns a slice of int64s.
+func StringToSliceOfInts64(s string) ([]int64, error) {
+	fields := strings.Fields(s)
+	ints := make([]int64, len(fields))
+	for i, field := range fields {
+		var err error
+		ints[i], err = strconv.ParseInt(field, 10, 64)
+		if err != nil {
+			return nil, err
+		}
+	}
+	return ints, nil
+}
+
 // given a string of numbers separated by a given separator, returns a slice of ints.
 func StringWithSeparatorToSliceOfInts(s string, separator rune) ([]int, error) {
 	fields := strings.FieldsFunc(s, func(r rune) bool {
@@ -48,9 +62,4 @@ func StringsToChars(ss []string) [][]rune {
 		chars[i] = []rune(s)
 	}
 	return chars
-}
-
-// print a given string replacing the line printed by the previous one
-func PrintOverwrite(s string) {
-	print("\033[1A\033[K" + s)
 }
