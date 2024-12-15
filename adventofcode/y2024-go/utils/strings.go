@@ -63,3 +63,15 @@ func StringsToChars(ss []string) [][]rune {
 	}
 	return chars
 }
+
+// StringsToInts given an array of strings returns an array of arrays of the integers of the strings
+func StringsToInts(ss []string) [][]int {
+	ints := make([][]int, len(ss))
+	for i, s := range ss {
+		ints[i] = make([]int, len(s))
+		for j, r := range s {
+			ints[i][j] = int(r - '0')
+		}
+	}
+	return ints
+}
